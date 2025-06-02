@@ -12,16 +12,30 @@ namespace MovieRental.Movie
 		
 		public Movie Save(Movie movie)
 		{
-			_movieRentalDb.Movies.Add(movie);
-			_movieRentalDb.SaveChanges();
-			return movie;
+			try
+			{
+                _movieRentalDb.Movies.Add(movie);
+                _movieRentalDb.SaveChanges();
+                return movie;
+            }
+			catch (Exception e)
+			{
+				throw e;
+			}			
 		}
 
 		// TODO: tell us what is wrong in this method? Forget about the async, what other concerns do you have?
 		public List<Movie> GetAll()
 		{
-            //return _movieRentalDb.Movies.Take(100).ToList();
-            return _movieRentalDb.Movies.ToList();
+			try
+			{
+                //return _movieRentalDb.Movies.Take(100).ToList();
+                return _movieRentalDb.Movies.ToList();
+            }
+			catch (Exception e)
+			{
+				throw e;
+			}            
 		}
 	}
 }
